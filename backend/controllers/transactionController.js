@@ -9,7 +9,7 @@ exports.addTransaction = async (req, res) => {
       amount,
       description,
       date,
-      category
+      category,
     });
     res.status(201).json(transaction);
   } catch (err) {
@@ -20,12 +20,9 @@ exports.addTransaction = async (req, res) => {
 exports.getTransactions = async (req, res) => {
   try {
     const { category, startDate, endDate } = req.query;
-
     const filter = { userId: req.user.id };
     if (category) filter.category = category;
-    if (startDate && endDate) {
-      filter.date = { [Op.between]: [startDate, endDate] };
-    }
+    if (startDate && endDate) filter.date = { [Op.between]: [startDate, endDate] };
 
     const transactions = await Transaction.findAll({
       where: filter,

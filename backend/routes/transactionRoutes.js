@@ -8,11 +8,9 @@ const {
   deleteTransaction
 } = require("../controllers/transactionController");
 
-// Apply authMiddleware per route
 router.post("/", authMiddleware, addTransaction);
 router.get("/", authMiddleware, getTransactions);
 router.put("/:id", authMiddleware, updateTransaction);
 router.delete("/:id", authMiddleware, deleteTransaction);
-
 
 module.exports = router;
