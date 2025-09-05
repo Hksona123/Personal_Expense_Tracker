@@ -1,59 +1,44 @@
-Expense Tracker
+# **Expense Tracker**
 
 A personal finance tracking web application that allows users to securely log in, manage income and expense transactions, filter them by date or category, and view a summary using a dynamic pie chart. The application provides full CRUD operations and real-time financial insights.
 
-Table of Contents
+---
 
-Features
+## **Table of Contents**
+- [Features](#features)
+- [Project Setup & Installation](#project-setup--installation)
+- [Technologies Used](#technologies-used)
+- [Database & ER Diagram](#database--er-diagram)
+- [API Endpoints](#api-endpoints)
+- [Deployment](#deployment)
+- [Demo Video](#demo-video)
+- [Folder Structure](#folder-structure)
+- [License](#license)
 
-Project Setup & Installation
+---
 
-Technologies Used
+## **Features**
+- **User Authentication**: Secure signup and login to protect personal data.  
+- **Transaction Management**: Add, edit, and delete transactions with amount, description, date, and category.  
+- **Sorting & Filtering**: View transactions sorted by newest first and filter by category or date range.  
+- **Dynamic Pie Chart**: Visualize income/expense breakdown by category.  
+- **Running Totals**: Track current balance, total income, and total expenses.  
+- **Responsive UI**: Fully responsive design for desktop and mobile.  
+- **Validations**: Frontend and backend validations prevent incorrect or empty data submissions.  
 
-Database & ER Diagram
+---
 
-API Endpoints
+## **Project Setup & Installation**
 
-Deployment
-
-Demo Video
-
-Folder Structure
-
-License
-
-Features
-
-User Authentication: Secure signup and login to protect personal data.
-
-Transaction Management: Add, edit, and delete transactions with amount, description, date, and category.
-
-Sorting & Filtering: View transactions sorted by newest first and filter by category or date range.
-
-Dynamic Pie Chart: Visualize income/expense breakdown by category.
-
-Running Totals: Track current balance, total income, and total expenses.
-
-Responsive UI: Fully responsive design for desktop and mobile.
-
-Validations: Frontend and backend validations prevent incorrect or empty data submissions.
-
-Project Setup & Installation
-Backend
-
-Navigate to the backend folder:
+### **Backend**
+1. Navigate to the backend folder:
 
 cd backend
 
+2. Install dependencies: npm install 
 
-Install dependencies:
-
-npm install
-
-
-Configure environment variables:
+3. Configure environment variables:
 Create a .env file (based on .env.example) with the following:
-
 PORT=5000
 DB_HOST=localhost
 DB_USER=root
@@ -61,41 +46,36 @@ DB_PASSWORD=your_password
 DB_NAME=expense_tracker
 JWT_SECRET=your_jwt_secret
 
-
-Run migrations & seed database:
-
+4. Run migrations & seed database:
 npx sequelize db:migrate
 npx sequelize db:seed:all
 
-
-Start the backend server:
-
+5. Start the backend server:
 npm run dev
 
+The backend API will run at http://localhost:5000
 
-The API backend will run on: http://localhost:5000
+### Frontend
 
-Frontend
-
-Navigate to the frontend folder:
+1. Navigate to the frontend folder:
 
 cd frontend
 
 
-Install dependencies:
+2. Install dependencies:
 
 npm install
 
 
-Start the frontend:
+3. Start the frontend:
 
 npm start
 
 
-The frontend will run on: http://localhost:3000
+The frontend will run at http://localhost:3000
 
-Technologies Used
-Technology	Purpose
+## Technologies Used
+### Technology	Purpose
 React.js	Frontend library for building interactive UIs and SPA.
 Tailwind CSS	Utility-first CSS framework for styling and responsiveness.
 Axios	HTTP client for frontend-backend communication.
@@ -105,10 +85,11 @@ Sequelize ORM	ORM for MySQL database operations and migrations.
 MySQL	Relational database for secure storage of users & transactions.
 JWT (JSON Web Tokens)	Secure user authentication and session management.
 Recharts	Dynamic pie charts for income/expense visualization.
-Database & ER Diagram
-Entities
 
-User
+## Database & ER Diagram
+### Entities
+
+### User
 
 id (PK)
 
@@ -120,7 +101,7 @@ password (hashed)
 
 createdAt, updatedAt
 
-Transaction
+### Transaction
 
 id (PK)
 
@@ -138,7 +119,7 @@ createdAt, updatedAt
 
 ER Diagram (Text-Based)
 
-User
+### User
 
 +----------------+
 | id (PK)        |
@@ -149,8 +130,7 @@ User
 | updatedAt      |
 +----------------+
 
-
-Transaction
+### Transaction
 
 +------------------------+
 | id (PK)                |
@@ -163,13 +143,13 @@ Transaction
 | updatedAt              |
 +------------------------+
 
-API Endpoints
-Auth
+## API Endpoints
+### Auth
 Method	Route	Purpose
 POST	/api/user/register	Signup a new user
 POST	/api/user/login	Login user & return JWT
 POST	/api/user/logout	Logout user (clear cookies)
-Transactions
+### Transactions
 Method	Route	Purpose
 GET	/api/transactions	Fetch all transactions for logged-in user
 POST	/api/transactions	Add a new transaction
@@ -178,11 +158,11 @@ DELETE	/api/transactions/:id	Delete a transaction
 
 All transaction routes require authentication via JWT token/cookie.
 
-Deployment
+### Deployment
 
 Frontend: https://personal-expense-tracker-phi.vercel.app/
 
-Demo Video
+### Demo Video
 
 Watch the demo showcasing signup/login, add/edit/delete transactions, filters, pie chart, and updated totals:
-Watch Demo
+Watch Demo: https://drive.google.com/file/d/1Sc_D05v6CfnIKLCKIBnyeb6jJ9DBw3ZD/view?usp=sharing
